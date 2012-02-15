@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Departure lat:</b>
+  <%= @point.departure_lat %>
+</p>
+
+<p>
+  <b>Departure lng:</b>
+  <%= @point.departure_lng %>
+</p>
+
+<p>
+  <b>Arrival lat:</b>
+  <%= @point.arrival_lat %>
+</p>
+
+<p>
+  <b>Arrival lng:</b>
+  <%= @point.arrival_lng %>
+</p>
+
+<p>
+  <b>Departure address:</b>
+  <%= @point.departure_address %>
+</p>
+
+<p>
+  <b>Arrival address:</b>
+  <%= @point.arrival_address %>
+</p>
+
+<p>
+  <b>Distance departure range:</b>
+  <%= @point.distance_departure_range %>
+</p>
+
+<p>
+  <b>Distance arrival range:</b>
+  <%= @point.distance_arrival_range %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @point.start_time %>
+</p>
+
+<p>
+  <b>Time range from:</b>
+  <%= @point.time_range_from %>
+</p>
+
+<p>
+  <b>Time range to:</b>
+  <%= @point.time_range_to %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @point.active %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @point.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

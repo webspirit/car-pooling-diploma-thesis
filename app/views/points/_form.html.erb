@@ -1,0 +1,69 @@
+<%= form_for(@point) do |f| %>
+  <% if @point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@point.errors.count, "error") %> prohibited this point from being saved:</h2>
+
+      <ul>
+      <% @point.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :departure_lat %><br />
+    <%= f.text_field :departure_lat %>
+  </div>
+  <div class="field">
+    <%= f.label :departure_lng %><br />
+    <%= f.text_field :departure_lng %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_lat %><br />
+    <%= f.text_field :arrival_lat %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_lng %><br />
+    <%= f.text_field :arrival_lng %>
+  </div>
+  <div class="field">
+    <%= f.label :departure_address %><br />
+    <%= f.text_area :departure_address %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_address %><br />
+    <%= f.text_area :arrival_address %>
+  </div>
+  <div class="field">
+    <%= f.label :distance_departure_range %><br />
+    <%= f.text_field :distance_departure_range %>
+  </div>
+  <div class="field">
+    <%= f.label :distance_arrival_range %><br />
+    <%= f.text_field :distance_arrival_range %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :time_range_from %><br />
+    <%= f.datetime_select :time_range_from %>
+  </div>
+  <div class="field">
+    <%= f.label :time_range_to %><br />
+    <%= f.datetime_select :time_range_to %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
