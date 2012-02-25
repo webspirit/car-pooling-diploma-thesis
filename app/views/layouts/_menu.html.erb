@@ -1,15 +1,16 @@
-<%= link_to "Pages", page_path %> 
+<%#= link_to "Pages", pages_path %> 
+<%= link_to "Points", points_path %>
 - 
-<%= link_to "Points", point_path %> 
+<%= link_to "New Point", new_point_path %>
+-
+<% if user_signed_in? %>
+  <%= link_to(current_user.email, edit_user_registration_path) %>
+<% else %>
+  <%= link_to('Register', new_user_registration_path)  %>
+<% end %>
 - 
 <% if user_signed_in? %>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
 <% else %>
   <%= link_to('Login', new_user_session_path)  %>  
-<% end %>
-- 
-<% if user_signed_in? %>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
-<% else %>
-  <%= link_to('Register', new_user_registration_path)  %>
 <% end %>

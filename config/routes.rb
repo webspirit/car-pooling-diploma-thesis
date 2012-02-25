@@ -1,9 +1,9 @@
 CarPool04::Application.routes.draw do
   devise_for :users
-
   resources :pages
-
   resources :points
+  
+  root :to => "pages#show", :id => 1 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

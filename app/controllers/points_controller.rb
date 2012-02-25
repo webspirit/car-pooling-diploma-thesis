@@ -2,6 +2,7 @@ class PointsController < ApplicationController
   before_filter :authenticate_user!
   # GET /points
   # GET /points.json
+  
   def index
     @points = Point.all
 
@@ -15,7 +16,7 @@ class PointsController < ApplicationController
   # GET /points/1.json
   def show
     @point = Point.find(params[:id])
-
+    #@point = User.find(1)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @point }
@@ -42,7 +43,9 @@ class PointsController < ApplicationController
   # POST /points.json
   def create
     @point = Point.new(params[:point])
-
+    @point.user_id = current_user.id
+    @point.active = true
+    
     respond_to do |format|
       if @point.save
         format.html { redirect_to @point, notice: 'Point was successfully created.' }
@@ -81,4 +84,10 @@ class PointsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def example
+    @point = Point.find()    
+  end
+
+  
 end
