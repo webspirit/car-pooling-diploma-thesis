@@ -1,3 +1,5 @@
+<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=en" %>
+
 <%= form_for(@point) do |f| %>
   <% if @point.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +13,15 @@
     </div>
   <% end %>
 
-
+    <%= f.hidden_field :departure_lat %>
+	<%= f.hidden_field :departure_lng %>
+	
+	<%= f.hidden_field :arrival_lat %>
+	<%= f.hidden_field :arrival_lng %>
+	
+	
 <!--   <div class="field">
     <%#= f.label :departure_lat %><br />
-    <%#= f.text_field :departure_lat %>
   </div>
   <div class="field">
     <%#= f.label :departure_lng %><br />
@@ -30,19 +37,26 @@
   </div> -->
   <div class="field">
     <%= f.label :departure_address %><br />
-    <%= f.text_area :departure_address %>
+    <%= f.text_field :departure_address %>
   </div>
+    
   <div class="field">
     <%= f.label :arrival_address %><br />
-    <%= f.text_area :arrival_address %>
+    <%= f.text_field :arrival_address %>
+  </div>
+  
+  <div id="map"></div>
+
+    
+  <div class="field">
+    <%= f.label :distance_departure_range %> (km)<br />
+    <%#= f.text_field :distance_departure_range %>
+    <%= select "point", "distance_departure_range", (0..10).each {|n| [ n, n ] } %>
   </div>
   <div class="field">
-    <%= f.label :distance_departure_range %><br />
-    <%= f.text_field :distance_departure_range %>
-  </div>
-  <div class="field">
-    <%= f.label :distance_arrival_range %><br />
-    <%= f.text_field :distance_arrival_range %>
+    <%= f.label :distance_arrival_range %> (km)<br />
+    <%= select "point", "distance_arrival_range", (0..10).each {|n| [ n, n ] } %>
+    <%#= f.text_field :distance_arrival_range %>
   </div>
   <div class="field">
     <%= f.label :start_time %><br />
