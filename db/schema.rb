@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20120225074639) do
   end
 
   create_table "points", :force => true do |t|
-    t.decimal  "departure_lat",            :precision => 10, :scale => 0
-    t.decimal  "departure_lng",            :precision => 10, :scale => 0
-    t.decimal  "arrival_lat",              :precision => 10, :scale => 0
-    t.decimal  "arrival_lng",              :precision => 10, :scale => 0
+    t.decimal  "departure_lat",            :precision => 18, :scale => 12
+    t.decimal  "departure_lng",            :precision => 18, :scale => 12
+    t.decimal  "arrival_lat",              :precision => 18, :scale => 12
+    t.decimal  "arrival_lng",              :precision => 18, :scale => 12
     t.text     "departure_address"
     t.text     "arrival_address"
     t.float    "distance_departure_range"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20120225074639) do
     t.datetime "time_range_to"
     t.boolean  "active"
     t.integer  "user_id"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.boolean  "offer"
   end
 

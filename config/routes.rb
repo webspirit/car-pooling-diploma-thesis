@@ -4,7 +4,7 @@ CarPool04::Application.routes.draw do
   resources :points
   
   root :to => "pages#show", :id => 1 
-
+  match 'points/:id/match' => 'points#match', :as => 'matched_routes'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,33 +1,16 @@
+<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=en&v=3&libraries=geometry", "route" %>
+
 <p id="notice"><%= notice %></p>
 
-<!-- <p>
-  <b>Departure lat:</b>
-  <%= @point.departure_lat %>
-</p>
-
-<p>
-  <b>Departure lng:</b>
-  <%= @point.departure_lng %>
-</p>
-
-<p>
-  <b>Arrival lat:</b>
-  <%= @point.arrival_lat %>
-</p>
-
-<p>
-  <b>Arrival lng:</b>
-  <%= @point.arrival_lng %>
-</p> -->
 
 <p>
   <b>Departure address:</b>
-  <%= @point.departure_address %>
+  <div id="start"><%= @point.departure_address %></div>
 </p>
 
 <p>
   <b>Arrival address:</b>
-  <%= @point.arrival_address %>
+  <div id="end"><%= @point.arrival_address %></div>
 </p>
 
 <p>
@@ -39,6 +22,8 @@
   <b>Distance arrival range:</b>
   <%= @point.distance_arrival_range %>
 </p>
+
+<div id="route_map"></div>
 
 <p>
   <b>Start time:</b>
@@ -55,16 +40,6 @@
   <%= @point.time_range_to %>
 </p>
 
-<p>
-  <b>Active:</b>
-  <%= @point.active %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @point.user_id %>
-</p>
-
-
+<%= link_to "Find matched routes", matched_routes_path(@point) %> |
 <%= link_to 'Edit', edit_point_path(@point) %> |
 <%= link_to 'Back', points_path %>

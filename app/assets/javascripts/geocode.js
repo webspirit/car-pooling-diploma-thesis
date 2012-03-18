@@ -6,8 +6,8 @@ var map1, geocoder1, marker1;
 window.onload = function() {
 // Creating a new map
 var options = {
-zoom: 3,
-center: new google.maps.LatLng(37.09, -95.71),
+zoom: 16,
+center: new google.maps.LatLng(37.9743323, 23.7330191),
 mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
