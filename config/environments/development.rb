@@ -34,4 +34,7 @@ CarPool04::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # In Development Mode it doesn't send the emails, it just saves them into tmp folder
+  config.action_mailer.delivery_method = :letter_opener
 end
