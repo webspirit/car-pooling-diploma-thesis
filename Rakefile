@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CarPool04::Application.load_tasks
+CarPool05::Application.load_tasks

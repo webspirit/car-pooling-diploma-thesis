@@ -1,12 +1,9 @@
 <h1>Matched Routes</h1>
 
+<%= hidden_field_tag "user_point", @current_point.id %>
+
 <table>
   <tr>
-	<th>ID</th>
-    <th>Departure lat</th>
-    <th>Departure lng</th>
-    <th>Arrival lat</th>
-    <th>Arrival lng</th>
     <th>Departure address</th>
     <th>Arrival address</th>
     <th>Distance departure range</th>
@@ -14,17 +11,12 @@
     <th>Start time</th>
     <th>Time range from</th>
     <th>Time range to</th>
-    <th>Active</th>
     <th>User</th>
+    <th>Claim Route</th>
   </tr>
 
 <% @points.each do |point| %>
   <tr>
-    <td><%= point.id %></td>  	
-    <td><%= point.departure_lat %></td>
-    <td><%= point.departure_lng %></td>
-    <td><%= point.arrival_lat %></td>
-    <td><%= point.arrival_lng %></td>
     <td><%= point.departure_address %></td>
     <td><%= point.arrival_address %></td>
     <td><%= point.distance_departure_range %></td>
@@ -32,8 +24,8 @@
     <td><%= point.start_time %></td>
     <td><%= point.time_range_from %></td>
     <td><%= point.time_range_to %></td>
-    <td><%= point.active %></td>
     <td><%= point.user_id %></td>
+    <td><%= link_to 'Claim', claim_route_path(id: @current_point.id, fellow: point) %></td>
   </tr>
 <% end %>
 </table>

@@ -6,6 +6,12 @@ class PointsController < ApplicationController
   def index
     @points = Point.where(:user_id => current_user.id)
 
+    # if @points.offer == true
+      # @status = false
+    # else
+      # @status = true
+    # end
+            
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @points }
@@ -14,8 +20,9 @@ class PointsController < ApplicationController
 
   # GET /points/1
   # GET /points/1.json
-  def show
+  def show      
     @point = Point.find(params[:id])
+    
     respond_to do |format|
       format.html 
       format.json { render json: @point }
@@ -42,7 +49,6 @@ class PointsController < ApplicationController
   # POST /points.json
   def create
     @point = Point.new(params[:point])
-    #@point = Point.where(:departure_lat => params[:departure_lat])
     @point.user_id = current_user.id
     @point.active = true
     
@@ -56,7 +62,6 @@ class PointsController < ApplicationController
       end
     end
   end
-  
   
   # PUT /points/1
   # PUT /points/1.json
@@ -89,11 +94,6 @@ class PointsController < ApplicationController
   # GET /points/match
   # GET /points/match.json
   def match
-     
-    #) && Point.where(:offer => !offer)
-    
-    #@points = Point.where(:departure_lat => (dep_lat - (dep_range * 0.009))..(dep_lat + (dep_range * 0.009))) && Point.where(:departure_lng => (dep_lng - (dep_range * 0.008))..(dep_lng + (dep_range * 0.008))) && Point.where(:arrival_lat => (arr_lat - (arr_range * 0.009))..(arr_lat + (arr_range * 0.009))) && Point.where(:arrival_lng => (arr_lng - (arr_range * 0.008))..(arr_lng + (arr_range * 0.008))) && Point.where(:active => true) && Point.where(:offer => !offer)
- 
     @current_point = Point.find(params[:id])
     
     @dep_lat = @current_point.departure_lat 
@@ -114,9 +114,7 @@ class PointsController < ApplicationController
     else
       @status = true
     end
-    
-    #@usr_id != @current_point.user_id
-    
+        
     @points = Point.where(:departure_lat => @dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range, 
                           :departure_lng => @dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range, 
                           :arrival_lat => @arr_lat - @arr_lat_range..@arr_lat + @arr_lat_range, 
@@ -124,13 +122,33 @@ class PointsController < ApplicationController
                           :start_time => @time_min..@time_max,
                           :active => true,
                           :offer => @status).limit(20).all
- 
-    
+                          
     respond_to do |format|
       format.html 
       format.json { render json: @points }
     end
+  end
+  
+  def claim
+    @search_point = Point.find(params[:id])
+    @fellow_point = Point.find(params[:fellow])
     
+    if @fellow_point.fellow_id == nil 
+      @fellow_point.fellow_id = params[:id]
+      @search_point.active = false
+      @search_point.fellow_id = params[:fellow]
+      @fellow_point.active = false
+    end
+        
+    respond_to do |format|
+      if @search_point.save && @fellow_point.save
+        format.html { redirect_to @search_point, notice: "Route successfully claimed." }
+        #format.json { render json: @point, status: :created, location: @point }
+      else
+        format.html { render action: "new" }
+        #format.json { render json: @point.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
 end

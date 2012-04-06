@@ -5,6 +5,9 @@ CarPool04::Application.routes.draw do
   
   root :to => "pages#show", :id => 1 
   match 'points/:id/match' => 'points#match', :as => 'matched_routes'
+  match 'points/:id/claim' => 'points#claim', :as => 'claim_route'
+ # claim 'points/:id/claim' => 'points#claim', :as => 'claim_route'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

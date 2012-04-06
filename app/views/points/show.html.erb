@@ -2,7 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-
 <p>
   <b>Departure address:</b>
   <div id="start"><%= @point.departure_address %></div>
@@ -38,6 +37,11 @@
 <p>
   <b>Time range to:</b>
   <%= @point.time_range_to %>
+</p>
+
+<p>
+  <b>Fellow Route ID:</b>
+  <%= @point.fellow_id %>
 </p>
 
 <%= link_to "Find matched routes", matched_routes_path(@point) %> |

@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: car_pool05
+  database: car_pool05_test
   pool: 5
   username: root
   password: vorpal

@@ -1,4 +1,4 @@
-<h1>My Routes</h1>
+<h1>Claimed Route</h1>
 
 <table>
   <tr>
@@ -9,9 +9,8 @@
     <th>Start time</th>
     <th>Time range from</th>
     <th>Time range to</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>User</th>
+    <th>Claim Route</th>
   </tr>
 
 <% @points.each do |point| %>
@@ -23,14 +22,10 @@
     <td><%= point.start_time %></td>
     <td><%= point.time_range_from %></td>
     <td><%= point.time_range_to %></td>
-    <td><%= link_to 'Show', point %></td>
-    <td><%= link_to 'Edit', edit_point_path(point) %></td>
-    <td><%= link_to 'Destroy', point, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= point.user_id %></td>
+    <td><%= link_to 'Claim', claim_route_path(@point) %></td>
   </tr>
 <% end %>
 </table>
 
-
 <br />
-
-<%= link_to 'New Point', new_point_path %>
