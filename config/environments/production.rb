@@ -1,4 +1,4 @@
-CarPool04::Application.configure do
+CarPool::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -60,6 +60,11 @@ CarPool04::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  ActionMailer::Base::raise_delivery_errors = true
+  ActionMailer::Base::smtp_settings[:enable_starttls_auto] = false
+  
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

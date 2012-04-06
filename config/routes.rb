@@ -1,4 +1,4 @@
-CarPool04::Application.routes.draw do
+CarPool::Application.routes.draw do
   devise_for :users
   resources :pages
   resources :points

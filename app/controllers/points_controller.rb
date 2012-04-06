@@ -67,9 +67,18 @@ class PointsController < ApplicationController
   # PUT /points/1.json
   def update
     @point = Point.find(params[:id])
-
+    @tmp = @point.dup
+    
     respond_to do |format|
       if @point.update_attributes(params[:point])
+        
+      if @tmp.fellow_id
+        route = @tmp
+        tmp_point = Point.find(@tmp.fellow_id)
+        user = tmp_point.user
+        UserMailer.deleted_route(user, route).deliver
+      end
+        
         format.html { redirect_to @point, notice: 'Point was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,9 +91,17 @@ class PointsController < ApplicationController
   # DELETE /points/1
   # DELETE /points/1.json
   def destroy
-    @point = Point.find(params[:id])
+    @point = Point.find(params[:id])   
+    
+    if @point.fellow_id
+      route = @point
+      tmp_point = Point.find(@point.fellow_id)
+      user = tmp_point.user
+      UserMailer.deleted_route(user, route).deliver
+    end
+    
     @point.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to points_url }
       format.json { head :no_content }
@@ -142,6 +159,11 @@ class PointsController < ApplicationController
         
     respond_to do |format|
       if @search_point.save && @fellow_point.save
+        
+        claimed_user = @search_point.user
+        route_user   = @fellow_point.user
+        UserMailer.claimed_route(claimed_user, route_user).deliver
+        
         format.html { redirect_to @search_point, notice: "Route successfully claimed." }
         #format.json { render json: @point, status: :created, location: @point }
       else
