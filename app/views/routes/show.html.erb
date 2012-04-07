@@ -4,46 +4,46 @@
 
 <p>
   <b>Departure address:</b>
-  <div id="start"><%= @point.departure_address %></div>
+  <div id="start"><%= @route.departure_address %></div>
 </p>
 
 <p>
   <b>Arrival address:</b>
-  <div id="end"><%= @point.arrival_address %></div>
+  <div id="end"><%= @route.arrival_address %></div>
 </p>
 
 <p>
   <b>Distance departure range:</b>
-  <%= @point.distance_departure_range %>
+  <%= @route.distance_departure_range %>
 </p>
 
 <p>
   <b>Distance arrival range:</b>
-  <%= @point.distance_arrival_range %>
+  <%= @route.distance_arrival_range %>
 </p>
 
 <div id="route_map"></div>
 
 <p>
   <b>Start time:</b>
-  <%= @point.start_time %>
+  <%= @route.start_time %>
 </p>
 
 <p>
   <b>Time range from:</b>
-  <%= @point.time_range_from %>
+  <%= @route.time_range_from %>
 </p>
 
 <p>
   <b>Time range to:</b>
-  <%= @point.time_range_to %>
+  <%= @route.time_range_to %>
 </p>
 
 <p>
   <b>Fellow Route ID:</b>
-  <%= @point.fellow_id %>
+  <%= @route.fellow_id %>
 </p>
 
-<%= link_to "Find matched routes", matched_routes_path(@point) %> |
-<%= link_to 'Edit', edit_point_path(@point) %> |
-<%= link_to 'Back', points_path %>
+<%= link_to "Find matched routes", matched_routes_path(@route) %> |
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

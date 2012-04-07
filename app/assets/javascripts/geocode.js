@@ -44,8 +44,8 @@ function getDepCoordinates(address) {
 		
 
 
-		$("#point_departure_lat").val(results[0].geometry.location.lat());
- 		$("#point_departure_lng").val(results[0].geometry.location.lng());
+		$("#route_departure_lat").val(results[0].geometry.location.lat());
+ 		$("#route_departure_lng").val(results[0].geometry.location.lng());
 
 		}
 	});
@@ -56,14 +56,14 @@ function getDepCoordinates(address) {
 
 
 $(function() {
-	$("#point_departure_address").blur(function() {
+	$("#route_departure_address").blur(function() {
 		get_dep_address();
 	});	
 });
 
 
 	function get_dep_address() {
-		var dep_address = $("#point_departure_address").val();
+		var dep_address = $("#route_departure_address").val();
 		getDepCoordinates(dep_address);
 	}	
 })();
@@ -111,8 +111,8 @@ function getArrCoordinates(address) {
 			}
 		marker2.setPosition(results[0].geometry.location);
 		
-		$("#point_arrival_lat").val(results[0].geometry.location.lat());
- 		$("#point_arrival_lng").val(results[0].geometry.location.lng());	
+		$("#route_arrival_lat").val(results[0].geometry.location.lat());
+ 		$("#route_arrival_lng").val(results[0].geometry.location.lng());	
 		}
 	});
 }
@@ -122,13 +122,13 @@ function getArrCoordinates(address) {
 
 $(function() {
 	
-	$("#point_arrival_address").blur(function() {
+	$("#route_arrival_address").blur(function() {
 		get_arr_address();
 	});	
 });
 
 	function get_arr_address() {
-		var arr_address = $("#point_arrival_address").val();
+		var arr_address = $("#route_arrival_address").val();
 		getArrCoordinates(arr_address);
 	}
 	

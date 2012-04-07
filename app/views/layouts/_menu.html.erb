@@ -1,8 +1,8 @@
 <%= link_to "Home/Logo", "/" %>
 - 
-<%= link_to "My Routes", points_path %>
+<%= link_to "My Routes", routes_path %>
 - 
-<%= link_to "Search Route", new_point_path %>
+<%= link_to "Search Route", new_route_path %>
 -
 <% if user_signed_in? %>
   <%= link_to(current_user.email, edit_user_registration_path) %>

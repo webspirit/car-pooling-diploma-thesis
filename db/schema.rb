@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20120406142011) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "points", :force => true do |t|
+  create_table "routes", :force => true do |t|
     t.decimal  "departure_lat",            :precision => 18, :scale => 12
     t.decimal  "departure_lng",            :precision => 18, :scale => 12
     t.decimal  "arrival_lat",              :precision => 18, :scale => 12

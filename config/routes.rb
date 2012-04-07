@@ -1,12 +1,12 @@
 CarPool::Application.routes.draw do
   devise_for :users
   resources :pages
-  resources :points
+  resources :routes
   
   root :to => "pages#show", :id => 1 
-  match 'points/:id/match' => 'points#match', :as => 'matched_routes'
-  match 'points/:id/claim' => 'points#claim', :as => 'claim_route'
- # claim 'points/:id/claim' => 'points#claim', :as => 'claim_route'
+  match 'routes/:id/match' => 'routes#match', :as => 'matched_routes'
+  match 'routes/:id/claim' => 'routes#claim', :as => 'claim_route'
+ # claim 'routes/:id/claim' => 'routes#claim', :as => 'claim_route'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

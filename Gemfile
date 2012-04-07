@@ -27,6 +27,20 @@ gem "letter_opener", :group => :development
 gem 'jquery-rails'
 gem 'hirb'
 
+group :test, :development do
+  gem 'capistrano'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem 'spork', "> 0.9.0.rc"
+  gem "guard-spork"
+  gem "launchy"
+  gem "pry-remote"
+  gem "pry-rails"
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

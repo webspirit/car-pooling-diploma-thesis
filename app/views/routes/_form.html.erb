@@ -1,12 +1,12 @@
 <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=en", "geocode" %>
 
-<%= form_for(@point) do |f| %>
-  <% if @point.errors.any? %>
+<%= form_for(@route) do |f| %>
+  <% if @route.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@point.errors.count, "error") %> prohibited this point from being saved:</h2>
+      <h2><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</h2>
 
       <ul>
-      <% @point.errors.full_messages.each do |msg| %>
+      <% @route.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -53,11 +53,11 @@
   <div class="field">
     <%= f.label :distance_departure_range %> (km)<br />
     <%#= f.text_field :distance_departure_range %>
-    <%= select "point", "distance_departure_range", (0..10).each {|n| [ n, n ] } %>
+    <%= select "route", "distance_departure_range", (0..10).each {|n| [ n, n ] } %>
   </div>
   <div class="field">
     <%= f.label :distance_arrival_range %> (km)<br />
-    <%= select "point", "distance_arrival_range", (0..10).each {|n| [ n, n ] } %>
+    <%= select "route", "distance_arrival_range", (0..10).each {|n| [ n, n ] } %>
     <%#= f.text_field :distance_arrival_range %>
   </div>
   <div class="field">

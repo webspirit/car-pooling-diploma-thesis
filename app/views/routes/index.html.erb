@@ -1,0 +1,36 @@
+<h1>My Routes</h1>
+
+<table>
+  <tr>
+    <th>Departure address</th>
+    <th>Arrival address</th>
+    <th>Distance departure range</th>
+    <th>Distance arrival range</th>
+    <th>Start time</th>
+    <th>Time range from</th>
+    <th>Time range to</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @routes.each do |route| %>
+  <tr>
+    <td><%= route.departure_address %></td>
+    <td><%= route.arrival_address %></td>
+    <td><%= route.distance_departure_range %></td>
+    <td><%= route.distance_arrival_range %></td>
+    <td><%= route.start_time %></td>
+    <td><%= route.time_range_from %></td>
+    <td><%= route.time_range_to %></td>
+    <td><%= link_to 'Show', route %></td>
+    <td><%= link_to 'Edit', edit_route_path(route) %></td>
+    <td><%= link_to 'Destroy', route, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+<%= link_to 'New Point', new_route_path %>
