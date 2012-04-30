@@ -1,0 +1,17 @@
+<header data-role="header" data-theme="c" id="header">
+	<%= link_to image_tag("carpooling.png"), "/", :class => "nav-item", :id => "logo" %>
+	 
+	<%= link_to "", :id => "damn" %>
+
+	<% if user_signed_in? %>
+	  <%= link_to(current_user.email, edit_user_registration_path, :class => "nav-item", :id => "signup-btn", "data-theme" => "b") %>
+	<% else %>
+		<%= link_to('Sign Up', new_user_registration_path, :class => "nav-item", :id => "signup-btn", "data-theme" => "b") %>
+	<% end %>
+
+	<% if user_signed_in? %>
+	  <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "nav-item", :id => "login-btn", "data-theme" => "c") %>        
+	<% else %>
+	  <%= link_to('Login', new_user_session_path, :class => "nav-item", :id => "login-btn", "data-theme" => "c")  %>  
+	<% end %>
+</header>

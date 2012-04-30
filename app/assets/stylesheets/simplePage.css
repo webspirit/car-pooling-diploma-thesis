@@ -1,0 +1,208 @@
+/*----------header----------*/
+#header {
+	position: relative;
+	min-height: 50px;
+	overflow: visible;
+	padding: 0px 25px 0 25px;
+}
+#damn {
+	display: none;
+}
+.nav-item {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
+#logo {
+	left: 20%;
+	background: none;
+	border: none;
+	margin-top: -3px;
+}
+
+#signup-btn {
+	color: white;
+	margin: 10px 10px 0 0;
+	left: 65%;
+	float: left;
+}
+#login-btn {
+	color: black;
+	left: 65%;
+	float: left;
+	margin-top: 10px;
+}
+/*----------end header----------*/
+
+.content {
+	position: fixed;
+	left: 50%;
+	margin-left: -215px;
+}
+#home-icons {
+	width: 370px;
+	height: 200px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.home-icon {
+	float: left;
+}
+#home-icons h2 {
+	width: 100px;
+	position: absolute;
+}
+#home-icons h2#add {
+	top: 0px;
+	left: 40%;
+}
+#home-icons h2#search {
+	top: 41%;
+	right: 0px;
+}
+#home-icons h2#claim {
+	bottom: 0;
+	left: 40%;
+}
+#home-icons h2#car {
+	top: 41%;
+	left: 0px;
+}
+#home-icons p {
+	text-align: center;
+	position: absolute;
+	width: 160px;
+	height: auto;
+	left: 27%;
+	top: 30%;
+}
+
+#home-icons .ui-icon-plus, #home-icons .ui-icon-minus {
+	background-image: none;
+	background-color: transparent;
+}
+
+#home-icons .ui-collapsible-heading-toggle {
+	background: transparent;
+	border: none;
+}
+
+#home-icons .ui-btn:focus {
+	box-shadow: 0 0 0 transparent;
+}
+/*----------Cicle-Arrows----------*/
+#arrow1 {
+	width: 105px;
+	height: 75px;
+	top: 5%;
+	left: 65%;
+	position: absolute;
+}
+#arrow2 {
+	width: 110px;
+	height: 75px;
+	top: 65%;
+	left: 65%;
+	position: absolute;
+}
+#arrow3 {
+	width: 105px;
+	height: 90px;
+	top: 58%;
+	left: 14%;
+	position: absolute;
+}
+/*----------end Cicle-Arrows----------*/
+
+/*----------Bubles BOTTOM triagle----------*/
+.triangle-border:after {
+	border-color: #FFFFFF transparent;
+	border-style: solid;
+	border-width: 13px 13px 0;
+	bottom: -12px;
+	content: "";
+	display: block;
+	left: 82px;
+	position: absolute;
+	width: 0;
+}
+.triangle-border:before {
+	border-color: #053379 transparent;
+	border-style: solid;
+	border-width: 20px 20px 0;
+	bottom: -20px;
+	content: "";
+	display: block;
+	left: 75px;
+	position: absolute;
+	width: 0;
+}
+.triangle-border {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 5px solid #053379;
+	border-radius: 10px 10px 10px 10px;
+	color: #333333;
+	margin: 1em 0 3em;
+	padding: 15px;
+	position: relative;
+}
+
+/*----------Bubles TOP triagle----------*/
+.triangle-border#top:after {
+	border-width: 0 13px 13px;
+	bottom: auto;
+	left: auto;
+	right: 83px;
+	top: -12px;
+}
+.triangle-border#top:before {
+	border-width: 0 20px 20px;
+	bottom: auto;
+	left: auto;
+	right: 76px;
+	top: -20px;
+}
+
+/*----------Bubles LEFT triagle----------*/
+.triangle-border#left:after {
+	border-color: transparent #FFFFFF;
+	border-width: 9px 21px 9px 0;
+	bottom: auto;
+	left: -20px;
+	top: 16px;
+}
+.triangle-border#left:before {
+	border-color: transparent #053379;
+	border-width: 15px 30px 15px 0;
+	bottom: auto;
+	left: -30px;
+	top: 10px;
+}
+
+/*----------Bubles RIGHT triagle----------*/
+.triangle-border#right:after {
+	border-color: transparent #FFFFFF;
+	border-width: 9px 0 9px 21px;
+	bottom: auto;
+	left: auto;
+	right: -20px;
+	top: 16px;
+}
+.triangle-border#right:before {
+	border-color: transparent #053379;
+	border-width: 15px 0 15px 30px;
+	bottom: auto;
+	left: auto;
+	right: -30px;
+	top: 10px;
+}
+.triangle-border#right {
+	margin-right: 30px;
+}
+/*----------end home page----------*/
+/*----------footer----------*/
+.footer-item {
+	color: white;
+}
+
+/*----------end footer----------*/
