@@ -10,9 +10,19 @@
   <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>	
 </head>
 <body>
-  <%= render "/layouts/header" %>
-  <%= yield %>
-  <%= render "/layouts/footer" %>
+	<section data-role="page">
+			<%= render "/layouts/header" %>
+<!-- 			<div class="content" data-role="content">	 -->
+				<%= yield %>
+<!-- 			</div> -->
+			<%= render "/layouts/footer" %>
+	</section>
 
 </body>
 </html>
+
+
+
+
+			
+		

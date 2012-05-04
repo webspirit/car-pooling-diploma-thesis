@@ -1,3 +1,48 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*----------header----------*/
+#header {
+  position: relative;
+  min-height: 50px;
+  overflow: visible;
+  padding: 0px 25px 0 25px;
+}
+#damn {
+  display: none;
+}
+.nav-item {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+#logo {
+  left: 20%;
+  background: none;
+  border: none;
+  margin-top: -3px;
+  box-shadow: none;
+}
+#logo .ui-btn-inner {
+  border-top-style:none;
+}
+
+#signup-btn {
+  color: white;
+  margin: 10px 10px 0 0;
+  left: 65%;
+  float: left;
+}
+#login-btn {
+  color: black;
+  left: 65%;
+  float: left;
+  margin-top: 10px;
+}
+/*----------end header----------*/
+
+/*----------footer----------*/
+.footer-item .ui-btn-text {
+  color: white;
+}
+footer.ui-fixed-hidden {
+  position: fixed;
+}
+/*----------end footer----------*/
