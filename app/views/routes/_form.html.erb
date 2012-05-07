@@ -13,57 +13,74 @@
     </div>
   <% end %>
 
+<div data-role="fieldcontainer">
     <%= f.hidden_field :departure_lat %>
 	<%= f.hidden_field :departure_lng %>
 	
 	<%= f.hidden_field :arrival_lat %>
 	<%= f.hidden_field :arrival_lng %>
+</div>
 	
+	<!-- departure -->
+	 <div id="depDiv" class="field">
+		<%= f.label :departure_address, "From:" %><br />
+		<%= f.text_field :departure_address, :name => "departureAddress", :title => "Departure Address", 
+			:style => "color:#888;", :value => "Departure address", :onfocus => "inputFocus(this)", :onblur => "inputBlur(this)" %>	
+			
+		<div id="dep_map" class="gmap"></div>
+		
+		 <div data-role="fieldcontainer">
+		 	<%= f.label :"Range around your departure (km)" %>:<br />
+		 	<%= f.text_field :departure_range, :name => "departureRange", :title => "Departure Range", 
+				:"input type" => "range", :class => "kmRange", :min => "0", :max => "10", :value => "1", :"data-theme" =>  "b" %>		
+		</div>
+	</div> 
+	<!-- end of	departure -->					 
+					 
+    <!-- arrival -->
+   <div id="arrDiv" class="field">
+		<%= f.label :To %>:<br />
+		<%= f.text_field :arrival_address, :name => "arrivalAddress", :title => "Arrival Address", 
+			:style => "color:#888;", :value => "Arrival address", :onfocus => "inputFocus(this)", :onblur => "inputBlur(this)" %>	
+			
+		<div id="arr_map" class="gmap"></div>
+		
+		 <div data-role="fieldcontainer">
+		 	<%= f.label :"Range around your arrival (km)" %>:<br />
+		 	<%= f.text_field :departure_range, :name => "departureRange", :title => "Departure Range", 
+				:"input type" => "range", :class => "kmRange", :min => "0", :max => "10", :value => "1", :"data-theme" =>  "b" %>	
 	
-<!--   <div class="field">
-    <%#= f.label :departure_lat %><br />
-  </div>
-  <div class="field">
-    <%#= f.label :departure_lng %><br />
-    <%#= f.text_field :departure_lng %>
-  </div>
-  <div class="field">
-    <%#= f.label :arrival_lat %><br />
-    <%#= f.text_field :arrival_lat %>
-  </div>
-  <div class="field">
-    <%#= f.label :arrival_lng %><br />
-    <%#= f.text_field :arrival_lng %>
-  </div> -->
-  <div class="field">
-    <%= f.label :departure_address %><br />
-    <%= f.text_field :departure_address %>
-  </div>
-  <div id="dep_map"></div>
+		</div>
+	</div>
+	<!-- end of	departure -->					 
+	
+	<!-- select date -->
+	<div id="dateTimeDiv" class="field" data-role="fieldcontainer">
+		<%= f.label :"Select the date" %><br />
+		
+			<!-- lathos -->
 
-    
-  <div class="field">
-    <%= f.label :arrival_address %><br />
-    <%= f.text_field :arrival_address %>
-  </div>
-  <div id="arr_map"></div>
+		
+    	<%= f.date_select :time_range_from, :id => "depDate", :value => "mm/dd/yy", :type => "date", :"data-role" => "datebox", 
+			:"data-options" => '{"mode": "flipbox"}', :style => "color:#888;", :onfocus => "inputFocus(this)", 
+			:onblur => "inputBlur(this)" %>
+	<br />	
+		<!-- select time range -->
+		<div data-role="controlgroup" id="timeZone">
+			<label for="depTimeZone">Departure Time Zone</label>
+			<label for="depTimeZone">From:</label>
+			<input name="timeFrom" value="hh:mm AM" style="color:#888;" 
+				onfocus="inputFocus(this)" onblur="inputBlur(this)" type="date" data-role="datebox" 
+				data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}'>			
+			<label for="depTimeZone">To: &nbsp &nbsp</label>
+			<input name="timeTo" type="date" value="hh:mm AM" style="color:#888;" 
+				onfocus="inputFocus(this)" onblur="inputBlur(this)" data-role="datebox" 
+				data-options='{"mode": "timeflipbox"}'>			
+		</div>				
+	</div>	
+			
+	
 
-
-    
-  <div class="field">
-    <%= f.label :distance_departure_range %> (km)<br />
-    <%#= f.text_field :distance_departure_range %>
-    <%= select "route", "distance_departure_range", (0..10).each {|n| [ n, n ] } %>
-  </div>
-  <div class="field">
-    <%= f.label :distance_arrival_range %> (km)<br />
-    <%= select "route", "distance_arrival_range", (0..10).each {|n| [ n, n ] } %>
-    <%#= f.text_field :distance_arrival_range %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.datetime_select :start_time %>
-  </div>
   <div class="field">
     <%= f.label :time_range_from %><br />
     <%= f.datetime_select :time_range_from %>
@@ -82,3 +99,13 @@
   </div>
   
 <% end %>
+
+<script>
+		function inputFocus(i){
+		    if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
+		}
+		function inputBlur(i){
+		    if(i.value==""){ i.value=i.defaultValue; i.style.color="#888"; }
+		}
+</script>
+

@@ -1,17 +1,23 @@
-.content {
-	position: fixed;
-	left: 50%;
-	margin-left: -215px;
-}
+/*---------- home page ----------*/
 #home-icons {
-	width: 370px;
-	height: 200px;
-	margin: 0 auto;
-	padding: 10px;
+  margin: 0 auto;
+  position: relative;
+  width: 400px;
+  height: 200px;
+  padding: 10px;
 }
 .home-icon {
 	float: left;
 }
+
+#home-icons .ui-btn-inner {
+border: none;
+}
+
+#home-icons .ui-icon {
+display: none;
+}
+
 #home-icons h2 {
 	width: 100px;
 	position: absolute;
@@ -25,8 +31,8 @@
 	right: 0px;
 }
 #home-icons h2#claim {
-	bottom: 0;
-	left: 40%;
+  bottom: -15px;
+  left: 40%;
 }
 #home-icons h2#car {
 	top: 41%;
@@ -73,7 +79,7 @@
 	width: 105px;
 	height: 90px;
 	top: 58%;
-	left: 14%;
+	left: 16%;
 	position: absolute;
 }
 /*----------end Cicle-Arrows----------*/
