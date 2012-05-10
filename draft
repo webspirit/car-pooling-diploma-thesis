@@ -1,3 +1,5 @@
+CSS Car-Pooling-Front-End
+
 /*----------new route page----------*/
 
 #newRoute {
@@ -7,6 +9,12 @@
   // border: 1px solid red;
   // background: transparent;
 // }
+
+#depDiv, #arrDiv, #dateTimeDiv, #offerAsk, #newRouteSubmit {
+border: 1px solid green;
+padding: 20px;
+}
+
 
 #newRoute .content {
   position: relative;
@@ -101,14 +109,8 @@
 /*---------- end new route page----------*/
 
 /*----------maps----------*/
-
-#arr_map {
-  width: 500px;
-  height: 300px;
-  border: 1px solid #ccc;
-}
-
-#dep_map {
+#arr_map, #dep_map {
+  margin: 15px auto;
   width: 500px;
   height: 300px;
   border: 1px solid #ccc;

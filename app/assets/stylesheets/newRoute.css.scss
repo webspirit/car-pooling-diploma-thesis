@@ -1,0 +1,145 @@
+/*----------new route page----------*/
+
+.new_route {
+  padding: 20px;
+}
+.new_route .ui-corner-all {
+  border-radius: 5px;
+}
+.new_route #depDiv {
+  margin-top: -30px;
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #ccc;
+}
+#depDiv label, #depDiv .ui-input-text,
+#arrDiv label, #arrDiv .ui-input-text  {
+  display: block;
+  position: relative;
+  float: left;
+  width: auto;
+}
+#depDiv label, #arrDiv label {
+  margin-top: 23px;
+}
+#depDiv input, #arrDiv input {
+  width: auto;
+  margin: 0 5px;
+  background: #fff;
+}                     
+#depDiv label, #depDiv .ui-input-text,
+#arrDiv label, #arrDiv .ui-input-text {
+  float: left;
+  position: relative;
+  display: block;
+}
+#route_departure_address {
+  width: 440px !important;
+}
+.new_route .kmRange {
+  max-width: 35px;
+}
+.new_route .ui-slider {
+  position: relative;
+  width: 140px;
+  margin: 0 10px;
+}
+#arrDiv {
+  margin-top: -10px;
+  margin-left: 3px;
+}
+
+#route_arrival_address {
+   width: 460px !important;
+}
+
+.new_route #arrDiv {
+marginn: -10px 0px 0 0;
+  padding-top: 15px;
+  border-top: 1px dashed #aaa;
+  padding-bottom: 25px;
+  border-bottom: 1px dashed #ccc;
+}
+.new_route #dateTimeDiv {
+  padding: 25px 0;
+  border-top: 1px dashed #aaa;
+  margin: -10px 0 0 3px;
+  height: 180px;
+}
+.new_route .ui-btn-icon-notext {
+  margin: 10px auto;
+  float: left;
+}
+.new_route #timeZone label {
+  clear: both;
+  display: block;
+  padding: 10px;
+}
+.new_route #timeZone .ui-input-datebox {
+  float: left;
+  line-height: 35px;
+}
+.new_route #dateTimeDiv label {
+  position: relative;
+  float: left;
+  width: auto;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: normal;
+  font-family: Helvetica,Arial,sans-serif;
+  margin: 0 10px 0 10px;
+}
+#date label {
+  padding: 7px;
+}
+#date .ui-input-datebox {
+  line-height: 30px;
+}
+#timeZone a{
+  border-bottom-width: 1px;
+  border-radius: 0.6em;
+}
+
+#dateTimeDiv .ui-input-datebox {
+  background: #fff;
+}
+.new_route #offerAsk {
+  display: block;
+  position: relative;
+  float: left;
+  padding-left: 10px;
+}
+.new_route #newRouteSubmit {
+  display: block;
+  position: relative;
+  float: left;
+  padding: 15px 0 0 5px;
+  min-width: 200px; 
+  min-height: 50px !important; 
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+
+/*----------maps----------*/
+#arr_map, #dep_map {
+  margin: 15px auto;
+  width: 500px;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+#dep_map, #arr_map {
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+#route_map {
+  width: 500px;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+#mydir {
+  width: 500px;
+  height: 300px;
+}
+
+/*----------end maps----------*/

@@ -25,8 +25,8 @@
 <div id="route_map"></div>
 
 <p>
-  <b>Start time:</b>
-  <%= @route.start_time %>
+  <b>Date:</b>
+  <%= @route.date %>
 </p>
 
 <p>
@@ -44,6 +44,7 @@
   <%= @route.fellow_id %>
 </p>
 
-<%= link_to "Find matched routes", matched_routes_path(@route) %> |
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to "Find matched routes", matched_routes_path(@route), "data-role" => "button", "data-theme" => "a", 
+	"data-icon" => "search", "data-inline" => "true", :id => "findBtn" %>
+<%= link_to 'Edit', edit_route_path(@route), "data-role" => "button", "data-theme" => "c", "data-icon" => "gear",
+	"data-inline" => "true", :id => "editBtn" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406142011) do
+ActiveRecord::Schema.define(:version => 20120507084804) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20120406142011) do
     t.text     "arrival_address"
     t.float    "distance_departure_range"
     t.float    "distance_arrival_range"
-    t.datetime "start_time"
-    t.datetime "time_range_from"
-    t.datetime "time_range_to"
+    t.date     "date"
+    t.time     "time_range_from"
+    t.time     "time_range_to"
     t.boolean  "active"
     t.integer  "user_id"
     t.datetime "created_at",                                               :null => false

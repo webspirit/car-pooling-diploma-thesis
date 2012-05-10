@@ -1,0 +1,21 @@
+/*---------- show route page ----------*/
+#editBtn {
+  color: #333;
+}
+#findBtn {
+  color: #fff;
+}
+/*---------- end show route page ----------*/
+
+/*---------- my routes ----------*/
+#myRoutes .ui-link {
+  display: block;
+  opacity: 0.9;
+}
+#myRoutes .ui-link:hover, #myRoutes .ui-link:active {
+  display: block;
+  background: transparent;
+  opacity: 1;
+}
+/*---------- end of my routes ----------*/
+

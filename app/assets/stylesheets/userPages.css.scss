@@ -1,0 +1,74 @@
+a.ui-link:hover {
+  color: #32546F;
+  background: none;
+}
+/*---------- edit user page ----------*/
+#edit_user {
+  overflow: hidden;
+  width: 98%;
+  padding: 0 10px;
+  margin-top: -15px;
+}
+#edit_user label{
+  display: block;
+  position: relative;
+  float: left;
+  padding: 5px 5px 0 5px;
+  margin-top: 10px;
+}
+#edit_user i{
+  display: block;
+  position: relative;
+  float: left;
+  line-height: 28px;
+  margin-top: 10px;
+}
+#edit_user input{
+  display: block;
+  float: left;
+  border-radius: 5px;
+  background: #fff;
+}
+#edit_user .ui-btn{
+  line-height: 18px;
+  display: block;
+  float: left;
+  width: 100px;
+  height: 35px;
+  margin-top: 20px;
+}
+/*---------- end edit user page ----------*/
+
+/*---------- new user page ----------*/
+#new_user {
+  overflow: hidden;
+  width: 98%;
+  padding: 0 10px;
+  margin-top: -15px;
+}
+#new_user label{
+  display: block;
+  position: relative;
+  float: left;
+  margin-top: 10px;
+  padding: 0;
+}
+#new_user input{
+  display: block;
+  border-radius: 5px;
+  background: #fff;
+}
+#new_user .ui-btn{
+  line-height: 18px;
+  display: block;
+  float: left;
+  height: 35px;
+  box-shadow: none;
+  margin: 10px 10px 10px 0;
+}
+#user_remember_me {
+  position: absolute !important;
+  display: none !important;
+}
+/*---------- end new user page ----------*/
+
