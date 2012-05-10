@@ -19,3 +19,39 @@
 }
 /*---------- end of my routes ----------*/
 
+/*---------- update route ----------*/
+#editRoute input, #editRoute .ui-input-datebox {
+  background: #fff;
+}
+#editRoute #route_map{
+  margin: 15px auto;
+}
+#editRoute {
+  padding: 0 10px 10px 10px;
+}
+#editRoute #updateRoute {
+  float: left;
+  display: block;
+  width: 200px;
+  margin-top: 15px; 
+  margin-left: -5px;
+}
+#editRoute #depart {
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #ccc;
+}
+#editRoute #arrive {
+  padding-bottom: 15px;
+  border-top: 1px dashed #aaa;
+  border-bottom: 1px dashed #ccc;
+}
+#editRoute #upDate {
+  border-top: 1px dashed #aaa;
+}
+
+/*---------- end of update route ----------*/
+
+
+
+
+

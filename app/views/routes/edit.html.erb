@@ -1,4 +1,128 @@
+<%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&language=en", "geocode" %>
+<%= javascript_include_tag "jquery.mousewheel.min.js",
+"http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js",
+"http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js" %>
+<%= stylesheet_link_tag "http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" %>
+
 <h1>Editing Route</h1>
 
-<%= render 'form' %>
+<p id="notice"><%= notice %></p>
+
+<div id="editRoute">
+<%= form_for(@route) do |f| %>
+<% if @route.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+	<ul>
+		<% @route.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div data-role="fieldcontainer">
+	<%= f.hidden_field :departure_lat %>
+	<%= f.hidden_field :departure_lng %>
+
+	<%= f.hidden_field :arrival_lat %>
+	<%= f.hidden_field :arrival_lng %>
+</div>
+
+<!-- departure -->
+<div id="depart">
+	<p><b>Departure address:</b></p>
+	<%= f.text_field :departure_address, :name => "route[departure_address]", :title => "Departure Address",
+    	:value => @route.departure_address, :onfocus => "inputFocus(this)", :onblur => "inputBlur(this)" %>  	
+    	
+	<p><b>Range around your departure (km):</b></p>
+	<%= f.text_field :departure_range, :name => "route[distance_departure_range]", :title => "Departure Range",
+	      "input type" => "range", :class => "kmRange", :min => "0", :max => "10", :value => @route.distance_departure_range,
+	      "data-theme" =>  "b" %>
+	      
+	<div id="dep_map"></div>
+</div>
+<!-- end of	departure -->
+
+<!-- arrival -->
+<div id="arrive">
+	<p><b>Arrival address:</b></p>
+	<%= f.text_field :arrival_address, :name => "route[arrival_address]", :title => "Arrival Address",
+    	:value => @route.arrival_address, :onfocus => "inputFocus(this)", :onblur => "inputBlur(this)" %>  	
+    	
+	<p><b>Range around your arrival (km):</b></p>
+	<%= f.text_field :arrival_range, :name => "route[distance_arrival_range]", :title => "Arrival Range",
+	      "input type" => "range", :class => "kmRange", :min => "0", :max => "10", :value => @route.distance_arrival_range,
+	      "data-theme" =>  "b" %>
+	      
+ 	<div id="arr_map"></div>
+
+</div>
+<!-- end of	arrival -->
+
+<!-- date -->
+<div id="upDate">
+<p>
+	<b>Date:</b>
+	<input data-options='{"mode": "flipbox"}' data-role="datebox" name="route[date]" size="30" type="date" 
+		value="<%= @route.date %>" />
+</p>
+</div>
+<!-- time -->
+<p>
+	<b>Time range from:</b>
+  	<input name="route[time_range_from]" value="<%= @route.time_range_from %>" type="time" data-role="datebox" 
+  		data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
+</p>
+
+<p>
+	<b>Time range to:</b>
+	<input name="route[time_range_to]" type="time" value="<%= @route.time_range_to %>" data-role="datebox" 
+		data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
+</p>
+
+<p>
+  <b>Fellow Route ID:</b>
+  <%= @route.fellow_id %>
+</p>
+
+<!-- offer/ask route -->
+<div data-role="controlgroup" data-type="horizontal" id="offerAsk">
+	<label for="offer">I'm offering a route</label>
+	<input type ="radio" id="offer" name="route[offer]" value="1" />
+
+	<label for="ask">I'm asking a route</label>
+	<input type ="radio" id="ask" name="route[offer]" value="0" />
+</div>
+<!-- end offer/ask route -->
+
+<!-- update button -->
+<div class="actions" id="updateRoute">
+	<%= f.submit "Update route", "data-theme" => "a" %>
+</div>
+<!-- end update button -->
+
+<% end %>
+</div>
+<!-- end of update route form -->
+
+<script>
+	function inputFocus(i) {
+		if(i.value == i.defaultValue) {
+			i.value = "";
+			i.style.color = "#000";
+		}
+	}
+
+	function inputBlur(i) {
+		if(i.value == "") {
+			i.value = i.defaultValue;
+			i.style.color = "#888";
+		}
+	}
+</script>
+
 
