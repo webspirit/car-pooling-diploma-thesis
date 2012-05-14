@@ -16,14 +16,14 @@
 
 <% @routes.each do |route| %>
   <tr>
-  	<td><%= link_to image_tag("show.png"), route %></td>
-  	<td><%= link_to image_tag("edit.png"), edit_route_path(route) %></td>
+  	<td><%= link_to image_tag("show.png"), route, "data-transition" => "slide" %></td>
+  	<td><%= link_to image_tag("edit.png"), edit_route_path(route), "data-transition" => "slide" %></td>
     <td><%= link_to image_tag("destroy.png"), route, confirm: 'Are you sure?', method: :delete %></td>
     <td><%= route.departure_address %></td>
     <td><%= route.arrival_address %></td>
  <!--    <td><%= route.distance_departure_range %></td>
     <td><%= route.distance_arrival_range %></td> -->
-    <td><%= route.date %></td>
+    <td><%= route.date.strftime('%d-%b-%y') %></td>
 <!--     <td><%= route.time_range_from %></td>
     <td><%= route.time_range_to %></td> -->
   </tr>

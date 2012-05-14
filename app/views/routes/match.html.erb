@@ -4,29 +4,29 @@
 
 <table>
   <tr>
+    <th>Claim Route</th>
     <th>Departure address</th>
     <th>Arrival address</th>
     <th>Distance departure range</th>
     <th>Distance arrival range</th>
-    <th>Start time</th>
+    <th>Date</th>
     <th>Time range from</th>
     <th>Time range to</th>
-    <th>User</th>
-    <th>Claim Route</th>
+<!--     <th>User</th> -->
   </tr>
 
 <% @routes.each do |route| %>
   <tr>
+    <td><%= link_to image_tag("claimRoute.png"), claim_route_path(id: @current_route.id, fellow: route) %></td>
     <td><%= route.departure_address %></td>
     <td><%= route.arrival_address %></td>
-    <td><%= route.distance_departure_range %></td>
-    <td><%= route.distance_arrival_range %></td>
-    <td><%= route.start_time %></td>
-    <td><%= route.time_range_from %></td>
-    <td><%= route.time_range_to %></td>
-    <td><%= route.user_id %></td>
-    <td><%= link_to 'Claim', claim_route_path(id: @current_route.id, fellow: route) %></td>
-  </tr>
+    <td><%= route.distance_departure_range %>km</td>
+    <td><%= route.distance_arrival_range %>km</td>
+    <td><%= route.date.strftime('%d-%b-%y') %></td>
+    <td><%= route.time_range_from.strftime('%H:%M') %></td>
+    <td><%= route.time_range_to.strftime('%H:%M') %></td>
+<!--     <td><%= route.user_id %></td> -->  
+</tr>
 <% end %>
 </table>
 

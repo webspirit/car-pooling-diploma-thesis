@@ -18,6 +18,41 @@
 			<%= render "/layouts/footer" %>
 	</section>
 
+<script>
+jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+    'dateFormat': 'dd-mm-YYYY',
+    'headerFormat': 'dd-mm-YYYY'
+});	
+</script>
+<!-- window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+} -->
+<!-- <script>
+function MyReload() 
+{ 
+window.location.reload(); 
+} 
+</script>  -->
+
+<!-- <script language="JavaScript" type="text/javascript">
+//  Published at: scripts.tropicalpcsolutions.com
+var reloaded = false;
+var loc=""+document.location;
+loc = loc.indexOf("?reloaded=")!=-1?loc.substring(loc.indexOf("?reloaded=")+10,loc.length):"";
+loc = loc.indexOf("&")!=-1?loc.substring(0,loc.indexOf("&")):loc;
+reloaded = loc!=""?(loc=="true"):reloaded;
+
+function reloadOnceOnly() {
+    if (!reloaded) 
+        window.location.replace(window.location+"?reloaded=true");
+}
+reloadOnceOnly(); //You can call this via the body tag if desired
+</script> -->
+
+
 </body>
 </html>
 

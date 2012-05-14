@@ -74,13 +74,13 @@
 <!-- time -->
 <p>
 	<b>Time range from:</b>
-  	<input name="route[time_range_from]" value="<%= @route.time_range_from %>" type="time" data-role="datebox" 
+  	<input name="route[time_range_from]" value="<%= @route.time_range_from.strftime('%H:%M') %>" type="time" data-role="datebox" 
   		data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
 </p>
 
 <p>
 	<b>Time range to:</b>
-	<input name="route[time_range_to]" type="time" value="<%= @route.time_range_to %>" data-role="datebox" 
+	<input name="route[time_range_to]" type="time" value="<%= @route.time_range_to.strftime('%H:%M') %>" data-role="datebox" 
 		data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
 </p>
 
@@ -108,6 +108,7 @@
 <% end %>
 </div>
 <!-- end of update route form -->
+
 
 <script>
 	function inputFocus(i) {

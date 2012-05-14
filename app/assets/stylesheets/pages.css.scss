@@ -19,6 +19,10 @@
   border: none;
   margin-top: -3px;
   box-shadow: none;
+  opacity: 0.9;
+}
+#logo:hover {
+  opacity: 1;
 }
 #logo .ui-btn-inner {
   border-top-style:none;

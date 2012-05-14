@@ -26,17 +26,17 @@
 
 <p>
   <b>Date:</b>
-  <%= @route.date %>
+  <%= @route.date.strftime('%d-%b-%y') %>
 </p>
 
 <p>
   <b>Time range from:</b>
-  <%= @route.time_range_from %>
+  <%= @route.time_range_from.strftime('%H:%M') %>
 </p>
 
 <p>
   <b>Time range to:</b>
-  <%= @route.time_range_to %>
+  <%= @route.time_range_to.strftime('%H:%M') %>
 </p>
 
 <p>
@@ -45,6 +45,8 @@
 </p>
 
 <%= link_to "Find matched routes", matched_routes_path(@route), "data-role" => "button", "data-theme" => "a", 
-	"data-icon" => "search", "data-inline" => "true", :id => "findBtn" %>
+	"data-icon" => "search", "data-inline" => "true", :id => "findBtn", "data-transition" => "flip" %>
 <%= link_to 'Edit', edit_route_path(@route), "data-role" => "button", "data-theme" => "c", "data-icon" => "gear",
-	"data-inline" => "true", :id => "editBtn" %>
+	"data-inline" => "true", :id => "editBtn", "data-transition" => "slide" %>
+	
+	
