@@ -71,7 +71,8 @@
 			onfocus="inputFocus(this)" size="30" style="color:#888;" type="date" "dateFormat = "yy/dd/mm/" value="mm/dd/yy" />
 	</div>
 	<!-- select time range -->
-<!-- 	<div data-role="controlgroup" id="timeZone">
+
+	<div data-role="controlgroup" id="timeZone">
 		<label for="depTimeZone">Departure Time Zone</label>
 		<label for="depTimeZone">From:</label>
 		<input name="route[time_range_from]" value="hh:mm" style="color:#888;"
@@ -82,24 +83,7 @@
 		<input name="route[time_range_to]" type="date" value="hh:mm" style="color:#888;" 
 			onfocus="inputFocus(this)" onblur="inputBlur(this)"
 			data-role="datebox" data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
-	</div> -->
-	<div data-role="controlgroup" id="timeZone">
-		<label for="depTimeZone">Departure Time Zone</label>
-		<label for="depTimeZone">Time:</label>
-		<input name="route[time]" value="hh:mm" style="color:#888;"
-			onfocus="inputFocus(this)" onblur="inputBlur(this)" type="date" data-role="datebox"
-			data-options='{"mode": "timeflipbox", "timeFormatOverride": 24}' />
-
-		<div data-role="fieldcontainer">
-			<%= f.label :time_range, "Time Range:" %>
-			<br />
-			<%= f.text_field :time_range, :name => "route[time_range]", :title => "Time Range",
-	      		"input type" => "range", :class => "kmRange", :min => "0", :max => "10", :value => "1", 
-	      		"data-theme" =>  "b" %>
-		</div>
 	</div>
-	
-	
 
 </div>
 
