@@ -16,7 +16,7 @@
 
 <% @routes.each do |route| %>
   <tr>
-  	<td><%= link_to image_tag("show.png"), route, "data-transition" => "slide" %></td>
+  	<td><%= link_to image_tag("show.png"), route, "data-transition" => "slide", "rel" => "external" %></td>
   	<td><%= link_to image_tag("edit.png"), edit_route_path(route), "data-transition" => "slide", "rel" => "external" %></td>
     <td><%= link_to image_tag("destroy.png"), route, confirm: 'Are you sure?', method: :delete %></td>
     <td><%= route.departure_address %></td>

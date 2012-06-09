@@ -1,10 +1,10 @@
 (function() {
-	
+
 	var map, directionsDisplay;
 	var gdir = new google.maps.DirectionsService(); 
-	
-	
-	   
+
+
+
 	window.onload = function() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -27,14 +27,14 @@
 		}
 		gdir.route(request, calcRoute);
 	};
-	
+
 	function calcRoute(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         //var directionsDisplay = new google.maps.DirectionsRenderer({map: map, panel: document.getElementById('mydir')});
         directionsDisplay.setDirections(response);
       }
 
-	
+
 
   }
    	
