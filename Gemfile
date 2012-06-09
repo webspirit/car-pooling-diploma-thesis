@@ -34,11 +34,13 @@ group :test, :development do
   gem "guard-rspec"
   gem "rspec-rails"
   gem "shoulda-matchers"
-  gem 'spork', "> 0.9.0.rc"
+  # gem 'spork', "> 0.9.0.rc"
+  gem "spork"
   gem "guard-spork"
   gem "launchy"
   gem "pry-remote"
   gem "pry-rails"
+  gem "rb-fsevent"
 end
 
 # To use ActiveModel has_secure_password

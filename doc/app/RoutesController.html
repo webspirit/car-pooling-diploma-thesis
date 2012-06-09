@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class RoutesController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/routes_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-claim">#claim</a>
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-match">#match</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Page.html">Page</a>
+  
+    <li><a href="./PagesController.html">PagesController</a>
+  
+    <li><a href="./PagesHelper.html">PagesHelper</a>
+  
+    <li><a href="./Route.html">Route</a>
+  
+    <li><a href="./RoutesController.html">RoutesController</a>
+  
+    <li><a href="./RoutesHelper.html">RoutesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class RoutesController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-claim" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">claim</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="claim-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">claim</span>
+  <span class="ruby-ivar">@search_route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@fellow_route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fellow</span>])
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fellow_route</span>.<span class="ruby-identifier">fellow_id</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span> 
+    <span class="ruby-ivar">@fellow_route</span>.<span class="ruby-identifier">fellow_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+    <span class="ruby-ivar">@search_route</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@search_route</span>.<span class="ruby-identifier">fellow_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:fellow</span>]
+    <span class="ruby-ivar">@fellow_route</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+      
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@search_route</span>.<span class="ruby-identifier">save</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@fellow_route</span>.<span class="ruby-identifier">save</span>
+      
+      <span class="ruby-identifier">claimed_user</span> = <span class="ruby-ivar">@search_route</span>.<span class="ruby-identifier">user</span>
+      <span class="ruby-identifier">route_user</span>   = <span class="ruby-ivar">@fellow_route</span>.<span class="ruby-identifier">user</span>
+      <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">claimed_route</span>(<span class="ruby-identifier">claimed_user</span>, <span class="ruby-identifier">route_user</span>).<span class="ruby-identifier">deliver</span>
+      
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@search_route</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Route successfully claimed.&quot;</span> }
+      <span class="ruby-comment">#format.json { render json: @route, status: :created, location: @route }</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
+      <span class="ruby-comment">#format.json { render json: @route.errors, status: :unprocessable_entity }</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- claim-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- claim-method -->
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /routes POST /routes.json</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:route</span>])
+  <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword">true</span>
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@route</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Route was successfully created.'</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>DELETE /routes/1 DELETE /routes/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])   
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">fellow_id</span>
+    <span class="ruby-identifier">route</span> = <span class="ruby-ivar">@route</span>
+    <span class="ruby-identifier">tmp_route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@route</span>.<span class="ruby-identifier">fellow_id</span>)
+    <span class="ruby-identifier">user</span> = <span class="ruby-identifier">tmp_route</span>.<span class="ruby-identifier">user</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">deleted_route</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">route</span>).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">destroy</span>
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">routes_url</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /routes/1/edit</p>
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /routes GET /routes.json</p>
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@routes</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+
+  <span class="ruby-comment"># if @routes.offer == true</span>
+    <span class="ruby-comment"># @status = false</span>
+  <span class="ruby-comment"># else</span>
+    <span class="ruby-comment"># @status = true</span>
+  <span class="ruby-comment"># end</span>
+          
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@routes</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /routes/match GET /routes/match.json</p>
+          
+
+          
+          <div class="method-source-code" id="match-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 113</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">match</span>
+    <span class="ruby-ivar">@current_route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+    
+    <span class="ruby-ivar">@dep_lat</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">departure_lat</span> 
+    <span class="ruby-ivar">@dep_lng</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">departure_lng</span>
+    <span class="ruby-ivar">@dep_lat_range</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">distance_departure_range</span> * <span class="ruby-value">0.009</span>
+    <span class="ruby-ivar">@dep_lng_range</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">distance_departure_range</span> * <span class="ruby-value">0.008</span>
+    
+    <span class="ruby-ivar">@arr_lat</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">arrival_lat</span> 
+    <span class="ruby-ivar">@arr_lng</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">arrival_lng</span>
+    <span class="ruby-ivar">@arr_lat_range</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">distance_arrival_range</span> * <span class="ruby-value">0.009</span>
+    <span class="ruby-ivar">@arr_lng_range</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">distance_arrival_range</span> * <span class="ruby-value">0.008</span>
+    
+    <span class="ruby-ivar">@time_min</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">time_range_from</span>
+    <span class="ruby-ivar">@time_max</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">time_range_to</span>
+    
+        <span class="ruby-comment"># :time_range_from =&gt; @time_min..@time_max,</span>
+        <span class="ruby-comment"># :time_range_to =&gt; @time_min..@time_max,</span>
+    
+    <span class="ruby-ivar">@date</span> = <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">date</span>
+        
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@current_route</span>.<span class="ruby-identifier">offer</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@status</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@status</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+          
+      <span class="ruby-comment"># @routes = Route.where('active = ? AND date = ? AND offer = ?', true, &quot;2012-05-13&quot;, @status)</span>
+     <span class="ruby-comment"># Client.where(&quot;orders_count = ? AND locked = ?&quot;, params[:orders], false)</span>
+          <span class="ruby-comment"># time_range_to = ? OR   @time_min..&quot;16:40&quot;,</span>
+          
+          
+     <span class="ruby-comment"># OKOKOK!</span>
+     <span class="ruby-comment"># @routes = Route.where(&quot;date = ? AND active = ? OR offer = ?&quot;, </span>
+                           <span class="ruby-comment"># @date, true, &quot;1&quot;)</span>
+<span class="ruby-comment">#      </span>
+                          <span class="ruby-comment"># (:departure_lat =&gt; @dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range,</span>
+                          <span class="ruby-comment"># :departure_lng =&gt; @dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range,</span>
+                          <span class="ruby-comment"># :arrival_lat =&gt; @arr_lat - @arr_lat_range..@arr_lat + @arr_lat_range, </span>
+                          <span class="ruby-comment"># :arrival_lng =&gt; @arr_lng - @arr_lng_range..@arr_lng + @arr_lng_range,</span>
+                          <span class="ruby-comment"># :time_range_to =&gt; @time_min..@time_max,</span>
+                          
+                          
+     <span class="ruby-comment"># @routes = Route.where(&quot;departure_lat = ?&quot;, &quot;0&quot;..&quot;40&quot;)    </span>
+
+                               <span class="ruby-comment"># &quot;@dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range&quot;</span>
+                               
+     <span class="ruby-comment"># @routes = Route.where(&quot;departure_lat = ? AND departure_lng = ?&quot;, </span>
+                           <span class="ruby-comment"># &quot;@dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range&quot;,</span>
+                           <span class="ruby-comment"># &quot;@dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range&quot;)</span>
+     
+     <span class="ruby-comment"># @routes = Route.where(&quot;(((time_range_from &gt;= :start_time AND time_range_from &lt;= :end_time) OR </span>
+        <span class="ruby-comment"># (time_range_to &gt;= :start_time AND time_range_to &lt;= :end_time)) OR offer = ?)&quot;, </span>
+        <span class="ruby-comment"># {:start_time =&gt; @time_min, :end_time =&gt; @time_max}, {:start_time =&gt; @time_min, :end_time =&gt; @time_max}, &quot;0&quot;)</span>
+               
+
+       
+     <span class="ruby-ivar">@routes</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:departure_lat</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@dep_lat</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@dep_lat_range</span><span class="ruby-operator">..</span><span class="ruby-ivar">@dep_lat</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@dep_lat_range</span>,
+                          <span class="ruby-value">:departure_lng</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@dep_lng</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@dep_lng_range</span><span class="ruby-operator">..</span><span class="ruby-ivar">@dep_lng</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@dep_lng_range</span>,
+                          <span class="ruby-value">:arrival_lat</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@arr_lat</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@arr_lat_range</span><span class="ruby-operator">..</span><span class="ruby-ivar">@arr_lat</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@arr_lat_range</span>, 
+                          <span class="ruby-value">:arrival_lng</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@arr_lng</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@arr_lng_range</span><span class="ruby-operator">..</span><span class="ruby-ivar">@arr_lng</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@arr_lng_range</span>,
+                          <span class="ruby-value">:date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@date</span>,
+                          <span class="ruby-value">:time_range_to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@time_min</span><span class="ruby-operator">..</span><span class="ruby-ivar">@time_max</span>,
+                          <span class="ruby-value">:active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+                          <span class="ruby-value">:offer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@status</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-value">20</span>).<span class="ruby-identifier">all</span>          
+                          
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@routes</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- match-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- match-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /routes/new GET /routes/new.json</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /routes/1 GET /routes/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>      
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PUT /routes/1 PUT /routes/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/routes_controller.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@tmp</span> = <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">dup</span>
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:route</span>])
+      
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tmp</span>.<span class="ruby-identifier">fellow_id</span>
+      <span class="ruby-identifier">route</span> = <span class="ruby-ivar">@tmp</span>
+      <span class="ruby-identifier">tmp_route</span> = <span class="ruby-constant">Route</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@tmp</span>.<span class="ruby-identifier">fellow_id</span>)
+      <span class="ruby-identifier">user</span> = <span class="ruby-identifier">tmp_route</span>.<span class="ruby-identifier">user</span>
+      <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">deleted_route</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">route</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-keyword">end</span>
+      
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@route</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Route was successfully updated.'</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@route</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

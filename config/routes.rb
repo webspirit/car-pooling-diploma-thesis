@@ -3,7 +3,7 @@ CarPool::Application.routes.draw do
   resources :pages
   resources :routes
   
-  root :to => "pages#show", :id => 1 
+  root :to => "pages#show"#, :id => 1 
   match 'routes/:id/match' => 'routes#match', :as => 'matched_routes'
   match 'routes/:id/claim' => 'routes#claim', :as => 'claim_route'
  # claim 'routes/:id/claim' => 'routes#claim', :as => 'claim_route'
