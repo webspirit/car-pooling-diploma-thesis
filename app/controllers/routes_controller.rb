@@ -176,7 +176,19 @@ class RoutesController < ApplicationController
                           # :active => true,
                           # :offer => @status).limit(20).all  
    
-   @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active` = 1 AND `routes`.`offer` = ? AND (`routes`.`departure_lat` BETWEEN ? AND ?) AND (`routes`.`departure_lng` BETWEEN ? AND ?) AND (`routes`.`arrival_lat` BETWEEN ? AND ?) AND (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
+   # @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active` = 1 AND `routes`.`offer` = ? AND (`routes`.`departure_lat` BETWEEN ? AND ?) AND (`routes`.`departure_lng` BETWEEN ? AND ?) AND (`routes`.`arrival_lat` BETWEEN ? AND ?) AND (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
+# (
+# (`routes`.`time_range_to` BETWEEN ? AND ?) OR
+ # (`routes`.`time_range_from` BETWEEN ? AND ?))",
+                          # @date, @status,
+                          # @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
+                          # @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
+                          # @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
+                          # @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
+# 
+                          # @time_min, @time_max,@time_min, @time_max]);
+                          
+                           @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active` = 1 AND `routes`.`offer` = ? AND (`routes`.`departure_lat` BETWEEN ? AND ?) AND (`routes`.`departure_lng` BETWEEN ? AND ?) AND (`routes`.`arrival_lat` BETWEEN ? AND ?) AND (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
 (
 (`routes`.`time_range_to` BETWEEN ? AND ?) OR
  (`routes`.`time_range_from` BETWEEN ? AND ?))",

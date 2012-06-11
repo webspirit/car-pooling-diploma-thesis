@@ -4,7 +4,7 @@
   <tr>
   	<th>Show</th>
     <th>Edit</th>
-    <th>Destroy</th>
+<!--     <th>Destroy</th> -->
     <th>Departure address</th>
     <th>Arrival address</th>
     <!-- <th>Distance departure range</th>
@@ -16,9 +16,9 @@
 
 <% @routes.each do |route| %>
   <tr>
-  	<td><%= link_to image_tag("show.png"), route, "data-transition" => "slide", "rel" => "external" %></td>
-  	<td><%= link_to image_tag("edit.png"), edit_route_path(route), "data-transition" => "slide", "rel" => "external" %></td>
-    <td><%= link_to image_tag("destroy.png"), route, confirm: 'Are you sure?', method: :delete %></td>
+  	<td><%= link_to image_tag("show.png"), route, :id => "show_route", "data-transition" => "slide", "rel" => "external" %></td>
+  	<td><%= link_to image_tag("edit.png"), edit_route_path(route), "data-transition" => "slide", :id => "edit_route", "rel" => "external" %></td>
+<!--     <td><%= link_to image_tag("destroy.png"), route, confirm: 'Are you sure?', :id => "delete_route", method: :delete %></td> -->
     <td><%= route.departure_address %></td>
     <td><%= route.arrival_address %></td>
  <!--    <td><%= route.distance_departure_range %></td>

@@ -20,3 +20,7 @@ config/*.yml
 *.pid
 rerun.txt
 pickle-email-*.html
+
+*.scss
+app/controllers/routes_controller.rb
+app/views/pages/show.html.erb

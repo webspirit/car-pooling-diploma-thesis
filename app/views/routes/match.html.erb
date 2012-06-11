@@ -17,7 +17,7 @@
 
 <% @routes.each do |route| %>
   <tr>
-    <td><%= link_to image_tag("claimRoute.png"), claim_route_path(id: @current_route.id, fellow: route) %></td>
+    <td><%= link_to image_tag("claimRoute.png"), claim_route_path(id: @current_route.id, fellow: route), "rel" => "external" %></td>
     <td><%= route.departure_address %></td>
     <td><%= route.arrival_address %></td>
     <td><%= route.distance_departure_range %>km</td>
