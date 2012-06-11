@@ -20,5 +20,3 @@ config/*.yml
 *.pid
 rerun.txt
 pickle-email-*.html
-
-app/controllers/routes_controller.rb

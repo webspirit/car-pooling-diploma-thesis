@@ -125,10 +125,7 @@ class RoutesController < ApplicationController
     
     @time_min = @current_route.time_range_from
     @time_max = @current_route.time_range_to
-    
-        # :time_range_from => @time_min..@time_max,
-        # :time_range_to => @time_min..@time_max,
-    
+
     @date = @current_route.date
         
     if @current_route.offer == true
@@ -136,37 +133,45 @@ class RoutesController < ApplicationController
     else
       @status = true
     end
-          
-      # @routes = Route.where('active = ? AND date = ? AND offer = ?', true, "2012-05-13", @status)
-     # Client.where("orders_count = ? AND locked = ?", params[:orders], false)
-          # time_range_to = ? OR   @time_min.."16:40",
-          
-          
-     # OKOKOK!
-     # @routes = Route.where("date = ? AND active = ? OR offer = ?", 
-                           # @date, true, "1")
-#      
-                          # (:departure_lat => @dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range,
-                          # :departure_lng => @dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range,
-                          # :arrival_lat => @arr_lat - @arr_lat_range..@arr_lat + @arr_lat_range, 
-                          # :arrival_lng => @arr_lng - @arr_lng_range..@arr_lng + @arr_lng_range,
-                          # :time_range_to => @time_min..@time_max,
-                          
-                          
-     # @routes = Route.where("departure_lat = ?", "0".."40")    
-
-                               # "@dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range"
-                               
-     # @routes = Route.where("departure_lat = ? AND departure_lng = ?", 
-                           # "@dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range",
-                           # "@dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range")
-     
-     # @routes = Route.where("(((time_range_from >= :start_time AND time_range_from <= :end_time) OR 
-        # (time_range_to >= :start_time AND time_range_to <= :end_time)) OR offer = ?)", 
-        # {:start_time => @time_min, :end_time => @time_max}, {:start_time => @time_min, :end_time => @time_max}, "0")
-               
-
-       
+    
+    @routes = Route.find(:all, :conditions => 
+    ["`routes`.`date` = ? AND 
+      `routes`.`active` = 1 AND 
+      `routes`.`offer` = ? AND 
+      (`routes`.`departure_lat` BETWEEN ? AND ?) AND 
+      (`routes`.`departure_lng` BETWEEN ? AND ?) AND 
+      (`routes`.`arrival_lat` BETWEEN ? AND ?) AND 
+      (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
+      (   (`routes`.`time_range_to` BETWEEN ? AND ?) OR 
+          (`routes`.`time_range_from` BETWEEN ? AND ?) OR
+          (`routes`.`time_range_from` < ? AND `routes`.`time_range_to` > ?)    
+      )",
+      @date, 
+      @status,
+      @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
+      @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
+      @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
+      @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
+      @time_min, @time_max, @time_min, @time_max, @time_min, @time_max]);
+      
+      
+      # @routes = Route.find(:all, :conditions => 
+    # ["`routes`.`date` = ? AND 
+      # `routes`.`active` = 1 AND 
+      # `routes`.`offer` = ? AND 
+      # (`routes`.`departure_lat` BETWEEN ? AND ?) AND 
+      # (`routes`.`departure_lng` BETWEEN ? AND ?) AND 
+      # (`routes`.`arrival_lat` BETWEEN ? AND ?) AND 
+      # (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
+      # ((`routes`.`time_range_to` BETWEEN ? AND ?) OR (`routes`.`time_range_from` BETWEEN ? AND ?))",
+      # @date, 
+      # @status,
+      # @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
+      # @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
+      # @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
+      # @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
+      # @time_min, @time_max,@time_min, @time_max]);
+            
      # @routes = Route.where(:departure_lat => @dep_lat - @dep_lat_range..@dep_lat + @dep_lat_range,
                           # :departure_lng => @dep_lng - @dep_lng_range..@dep_lng + @dep_lng_range,
                           # :arrival_lat => @arr_lat - @arr_lat_range..@arr_lat + @arr_lat_range, 
@@ -175,44 +180,7 @@ class RoutesController < ApplicationController
                           # :time_range_to => @time_min..@time_max,
                           # :active => true,
                           # :offer => @status).limit(20).all  
-   
-   # @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active` = 1 AND `routes`.`offer` = ? AND (`routes`.`departure_lat` BETWEEN ? AND ?) AND (`routes`.`departure_lng` BETWEEN ? AND ?) AND (`routes`.`arrival_lat` BETWEEN ? AND ?) AND (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
-# (
-# (`routes`.`time_range_to` BETWEEN ? AND ?) OR
- # (`routes`.`time_range_from` BETWEEN ? AND ?))",
-                          # @date, @status,
-                          # @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
-                          # @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
-                          # @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
-                          # @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
-# 
-                          # @time_min, @time_max,@time_min, @time_max]);
-                          
-                           @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active` = 1 AND `routes`.`offer` = ? AND (`routes`.`departure_lat` BETWEEN ? AND ?) AND (`routes`.`departure_lng` BETWEEN ? AND ?) AND (`routes`.`arrival_lat` BETWEEN ? AND ?) AND (`routes`.`arrival_lng` BETWEEN ? AND ?) AND 
-(
-(`routes`.`time_range_to` BETWEEN ? AND ?) OR
- (`routes`.`time_range_from` BETWEEN ? AND ?))",
-                          @date, @status,
-                          @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
-                          @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
-                          @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
-                          @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
-
-                          @time_min, @time_max,@time_min, @time_max]);
-   
-   # @routes = Route.find(:all, :conditions => ["`routes`.`date` = ? AND `routes`.`active = 1 AND `routes`.`offer` = 0 AND (`routes`.`departure_lat` BETWEEN 37.974673 AND 37.992673) AND (`routes`.`departure_lng` BETWEEN 23.6511617 AND 23.667161699999998) AND (`routes`.`arrival_lat` BETWEEN 37.9763611 AND 37.9943611) AND (`routes`.`arrival_lng` BETWEEN 23.7113255 AND 23.7273255) AND (`routes`.`time_range_to` BETWEEN '2000-01-01 15:36:00' AND '2000-01-01 15:36:00'",
-#      
-                          # @dep_lat - @dep_lat_range, @dep_lat + @dep_lat_range,
-                          # @dep_lng - @dep_lng_range, @dep_lng + @dep_lng_range,
-                          # @arr_lat - @arr_lat_range, @arr_lat + @arr_lat_range, 
-                          # @arr_lng - @arr_lng_range, @arr_lng + @arr_lng_range,
-                          # @date,
-                          # @time_min, @time_max,
-                          # @status) #.limit(20).all 
-   
-   
-                                  
-                          
+              
     respond_to do |format|
       format.html 
       format.json { render json: @routes }
