@@ -1,65 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Car Pooling</title>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <!-- ><script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script> -->
-</head>
-<body>
-	<section data-role="page">
-			<%= render "/layouts/header" %>
-			<section class="content" data-role="content">	
-				<%= yield %>
-			</section>	
-			<%= render "/layouts/footer" %>
-	</section>
+  <head>
+    <title>Car Pooling</title>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  	<section data-role="page">
+  			<%= render "/layouts/header" %>
 
-<script>
-jQuery.extend(jQuery.mobile.datebox.prototype.options, {
-    'dateFormat': 'dd-mm-YYYY',
-    'headerFormat': 'dd-mm-YYYY'
-});	
-</script>
-<!-- window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-} -->
-<!-- <script>
-function MyReload() 
-{ 
-window.location.reload(); 
-} 
-</script>  -->
+        <section class="content" data-role="content">
+  				<%= yield %>
+  			</section>
 
-<!-- <script language="JavaScript" type="text/javascript">
-//  Published at: scripts.tropicalpcsolutions.com
-var reloaded = false;
-var loc=""+document.location;
-loc = loc.indexOf("?reloaded=")!=-1?loc.substring(loc.indexOf("?reloaded=")+10,loc.length):"";
-loc = loc.indexOf("&")!=-1?loc.substring(0,loc.indexOf("&")):loc;
-reloaded = loc!=""?(loc=="true"):reloaded;
-
-function reloadOnceOnly() {
-    if (!reloaded) 
-        window.location.replace(window.location+"?reloaded=true");
-}
-reloadOnceOnly(); //You can call this via the body tag if desired
-</script> -->
-
-
-</body>
+        <%= render "/layouts/footer" %>
+  	</section>
+  </body>
 </html>
-
-
-
-
-			
-		

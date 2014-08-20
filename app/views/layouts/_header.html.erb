@@ -1,19 +1,23 @@
-<!--------- header --------->
-<header data-role="header" data-theme="b" id="header">
-	<%= link_to image_tag("carpooling.png"), "/", :class => "nav-item", :id => "logo" %>
-	
-	<a href="" id="damn"></a>
-	
-	<% if user_signed_in? %>
-	  <%= link_to(current_user.email, edit_user_registration_path, :class => "nav-item", :id => "signup-btn", "data-theme" => "b", "data-transition" => "flip") %>
-	<% else %>
-		<%= link_to('Sign Up', new_user_registration_path, :class => "nav-item", :id => "signup-btn", "data-theme" => "b", "data-transition" => "flip") %>
-	<% end %>
+<!-- header -->
+<header data-role="header" id="header">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <%= link_to image_tag("carpooling.png"), "/", :class => "nav-item", :id => "logo" %>
 
-	<% if user_signed_in? %>
-	  <%= link_to('Logout', destroy_user_session_path, :class => "nav-item", :id => "login-btn", "data-theme" => "c", "data-transition" => "flip") %>        
-	<% else %>
-	  <%= link_to('Login', new_user_session_path, :class => "nav-item", :id => "login-btn", "data-theme" => "c", "data-transition" => "flip")  %>  
-	<% end %>
+      <div class="pull-right">
+        <% if user_signed_in? %>
+          <%= link_to(current_user.email, edit_user_registration_path, :class => "nav-item btn btn-default", :id => "signup-btn")%>
+        <% else %>
+          <%= link_to('Sign Up', new_user_registration_path, :class => "nav-item btn btn-default", :id => "signup-btn")%>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :class => "nav-item btn btn-primary", :id => "login-btn")%>
+        <% else %>
+          <%= link_to('Login', new_user_session_path, :class => "nav-item btn btn-primary", :id => "login-btn") %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
 </header>
-<!--------- end of header --------->
+<!-- end of header -->

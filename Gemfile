@@ -4,8 +4,8 @@ gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2'
+gem 'thin'
+gem 'pg'
 gem 'passenger'
 gem 'devise'
 gem 'therubyracer' # compiles assets in production mode
@@ -38,6 +38,7 @@ group :test, :development do
   gem "spork"
   gem "guard-spork"
   gem "launchy"
+  gem "pry"
   gem "pry-remote"
   gem "pry-rails"
   gem "rb-fsevent"

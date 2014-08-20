@@ -1,62 +1,47 @@
-/*----------header----------*/
 #header {
-  position: relative;
-  min-height: 50px;
-  overflow: visible;
-  padding: 0px 25px 0 25px;
-}
-#damn {
-  display: none;
-}
-.nav-item {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
-#logo {
-  left: 20%;
-  background: none;
-  border: none;
-  margin-top: -3px;
-  box-shadow: none;
-  opacity: 0.9;
-}
-#logo:hover {
-  opacity: 1;
-}
-#logo .ui-btn-inner {
-  border-top-style:none;
+  height: 50px;
+  .container { margin-top: 8px; }
 }
 
-#signup-btn {
+.content {
+  background: #2A81CC image-url("home_bg.png") no-repeat;
+  margin-top: -10px;
+  height: 700px;
+}
+
+#intro {
+  display: block;
   color: white;
-  margin: 10px 10px 0 0;
-  left: 65%;
+  font-size: 40px;
+  margin-top: 60px;
+}
+
+.homepage_sign_up .form-control {
   float: left;
-}
-#login-btn {
-  color: black;
-  left: 65%;
-  float: left;
-  margin-top: 10px;
-}
-/*----------end header----------*/
-
-.ui-body-c {
-  background: url("abc.png");
+  width: 20%;
+  margin-right: 2%;
 }
 
-.ui-content {
-min-width: 500px;
-width: 550px;
-margin: 0 auto;
-}
+.features {
+  section {
+    background-color: #F8F8F8;
+    margin-top: 80px;
+    height: 200px;
+    text-align: center;
+    color: white;
+    p { color: #2A81CC; }
+  }
 
-/*----------footer----------*/
-.footer-item .ui-btn-text {
-  color: white;
+  i {
+    border-radius: 50%;
+    background-color: #2A81CC;
+    margin-top: 40px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+  section:hover {
+    p { color: #2372b2; }
+    i { background-color: #2372b2; }
+  }
 }
-footer.ui-fixed-hidden {
-  position: fixed;
-}
-/*----------end footer----------*/

@@ -1,28 +1,42 @@
 <p id="notice"><%= notice %></p>
-<p id="intro"><b>Car pooling</b> helps individuals to reach their destination together. <br />Someone is offering (driver) and someone is asking (passenger) for a route. <br />The application<b> combines their routes.</b> <br />Find out how:</p>
-	<div data-role="collapsible-set" id="home-icons">
-		<div data-role="collapsible" data-collapsed="false">
-			<h2 id="add" icon="false"><img src= "<%= asset_path("new.png") %>" class="home-icon"></h2>
-			<p class="triangle-border" id="top">Add new route</p>
-		</div>
-		
-		<div data-role="collapsible" data-collapsed="true">
-			<h2 id="search"><img src= "<%= asset_path("search.png") %>" class="home-icon"></h2>
-			<p class="triangle-border" id="right">Search matching route</p>
-		</div>
-						
-		<div data-role="collapsible" data-collapsed="true">
-			<h2 id="claim"><img src= "<%= asset_path("claim.png") %>" class="home-icon"></h2>
-			<p class="triangle-border">Claim preferable route among available</p>
-		</div>
-						
-		<div data-role="collapsible" data-collapsed="true">
-			<h2 id="car"><img src= "<%= asset_path("car.png") %>" class="home-icon"></h2>
-			<p class="triangle-border" id="left">Travel to your destination!</p>
-	</div>
-		
-	<div id="arrow1"><img src= "<%= asset_path("arrow1.png") %>"></div>
-	<div id="arrow2"><img src= "<%= asset_path("arrow2.png") %>"></div>
-	<div id="arrow3"><img src= "<%= asset_path("arrow3.png") %>"></div>
-	<div id="clear"></div>
+<div class="row">
+  <p id="intro" class='text-center'>
+    Share A Ride As A Passenger Or A Driver.
+  </p>
 </div>
+
+<div class="row homepage_sign_up">
+  <%= form_for(User.new, :as => :user, :url => registration_path(:user)) do |f| %>
+    <%#= devise_error_messages! %>
+
+    <div class="form-group col-sm-9 col-sm-offset-3 col-xs-12 col-xs-offset-2">
+      <%= f.email_field :email, placeholder: 'Enter your email', class: 'form-control col-sm-3', autofocus: true %>
+      <%= f.password_field :password, placeholder: 'Enter your password', class: 'form-control col-sm-3' %>
+      <%= f.submit "Sign up", placeholder: 'lala', class: 'form-control btn-success col-sm-3' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row features col-sm-10 col-sm-offset-1">
+  <section class="col-sm-6 col-md-3">
+    <i class="fa fa-pencil-square-o animated zoomInDown"></i>
+    <p>Step 1: Add a route</p>
+  </section>
+
+  <section class="col-sm-6 col-md-3">
+    <i class="fa fa-search animated zoomInDown"></i>
+    <p>Step 2: Search for matching routes</p>
+  </section>
+
+  <section class="col-sm-6 col-md-3">
+    <i class="fa fa-check animated zoomInDown"></i>
+    <p>Step 3: Claim preferable route among available</p>
+  </section>
+
+  <section class="col-sm-6 col-md-3">
+    <i class="fa fa-car animated zoomInDown"></i>
+    <p>Step 4: Travel to your destination!</p>
+  </section>
+</div>
+
+
