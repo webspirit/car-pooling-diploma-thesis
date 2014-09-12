@@ -1,29 +1,23 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: test-mysql2_development
+  adapter: postgresql
+  encoding: unicode
+  database: kangaroute_dev
   pool: 5
-  username: root
-  password:
-  # socket: /tmp/mysql.sock
- 
+  username: <your_username>
+  password: <your_password>
+
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: test-mysql2_test
+  adapter: postgresql
+  encoding: unicode
+  database: kangaroute_test
   pool: 5
-  username: root
-  password:
-  # socket: /tmp/mysql.sock
- 
+  username: <your_username>
+  password: <your_password>
+
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: test-mysql2_production
+  adapter: postgresql
+  encoding: unicode
+  database: kangaroute
   pool: 5
-  username: root
-  password:
-  # socket: /tmp/mysql.sock
+  username: <your_username>
+  password: <your_password>
